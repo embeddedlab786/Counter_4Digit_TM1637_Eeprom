@@ -32,16 +32,14 @@ start();
 writeValue(Brightness[6]); // set Brightness 0 to 7
 stop();
 
-
 // clear display
 write_data(0x00, 0x00, 0x00, 0x00);
 
-
- // Indicate that system is ready
- for (int i = 9; i >=0; i--) {
+//Indicate that system is ready
+for (int i = 9; i >=0; i--) {
 write_data(digits[i%10], digits[i%10], digits[i%10], digits[i%10]);
  delay(1000); 
- }
+}
  
 if(EEPROM.read(0)==0){}
 else{
@@ -82,7 +80,6 @@ Counter=0;
 eeprom_write(); 
  }   
 }else{timer=0;}
-
 
 write_data(digits[(Counter/1000)%10], digits[(Counter/100)%10], digits[(Counter/10)%10], digits[Counter%10]);
 delay(10); 
